@@ -1,21 +1,21 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import AppState from './AppState';
-import App from './App';
+import CounterState from './MobxCounterState';
+import Counter from './MobxCounter';
 
-const appState = new AppState();
+const appState = new CounterState();
 
 render(
   <AppContainer>
-    <App appState={appState} />
+    <Counter appState={appState} />
   </AppContainer>,
   document.getElementById('root')
 );
 
 if (module.hot) {
-  module.hot.accept('./App', () => {
-    const NextApp = require('./App').default;
+  module.hot.accept('./MobxCounter', () => {
+    const NextApp = require('./MobxCounter').default;
 
     render(
       <AppContainer>
